@@ -18,11 +18,11 @@ do
 difft=$(($tails-$heads))
 diffh=$(($heads-$tails))
 
-if [ $tails -ge 21 -a $difft -ge 2 ]
+if [ $tails -ge 21 ]
 then
 	echo "Tails : "$(($tails-$heads))
 	break
-elif [ $heads -ge 21 -a $diffh -ge 2 ]
+elif [ $heads -ge 21 ]
 then
 	echo "Heads :"$(($heads-$tails))
 	break
