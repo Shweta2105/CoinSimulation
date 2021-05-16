@@ -2,26 +2,28 @@
 
 tails=0
 heads=0
-MAX_FLIP=5
-num_of_flip=0
-while [ $num_of_flip -le $MAX_FLIP ]
+i=0
+while [ true ]
 do
-	((num_of_flip++))
+	
 	headOrTail=$((RANDOM%2))
 	if [ $headOrTail -eq 0 ]
 	then
 		heads=$(($heads+1))
-		echo "head"
+		echo heads
 	else
 		tails=$(($tails+1))
-		echo "Tail"
+		echo tails
 	fi
-done
 
-if [ $heads -gt $tails ]
+if [ $tails -ge 21 ]
 then
-	echo "Head wins"
-else
-	echo "Tail wins"
+	echo "Tails : "$(($tails-$heads))
+	break
+elif [ $heads -ge 21 ]
+then
+	echo "Heads :"$(($heads-$tails))
+	break
 fi
-
+done
+echo "Tails count: "$tails "and Heads count :"$heads
